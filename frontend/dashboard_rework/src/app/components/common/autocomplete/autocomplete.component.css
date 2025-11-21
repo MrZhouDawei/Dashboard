@@ -1,0 +1,87 @@
+.selected-widgets-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  background-color: #f2f2f2; /* colore di sfondo leggermente più chiaro */
+  border: 1px solid #ddd; /* colore di bordo leggermente più chiaro */
+  border-radius: 5px;
+  max-width: 80%; /* larghezza massima relativa allo schermo */
+  max-height: 150px; /* altezza massima per il contenitore */
+  overflow-y: auto; /* abilita lo scroll verticale */
+  box-sizing: border-box; /* assicura che padding e bordo siano inclusi nella dimensione */
+}
+
+.selected-widgets-list li {
+  background-color: #fff; /* colore di sfondo bianco */
+  padding: 5px 10px;
+  border: 1px solid #ddd; /* colore di bordo leggermente più chiaro */
+  border-radius: 5px;
+  margin: 5px;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* aggiunge un'ombra leggera */
+}
+
+.selected-widgets-list li button {
+  background-color: #4CAF50; /* colore di sfondo verde */
+  color: #fff; /* colore di testo bianco */
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.selected-widgets-list li button:hover {
+  background-color: #3e8e41; /* colore di sfondo verde scuro */
+}
+
+.autocomplete-list {
+  background-color: #fff; /* colore di sfondo bianco */
+  padding: 10px;
+  border: 1px solid #ddd; /* colore di bordo leggermente più chiaro */
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* aggiunge un'ombra leggera */
+  max-width: 80%; /* larghezza massima relativa allo schermo */
+  overflow-y: auto;
+  max-height: 150px;
+
+}
+
+.autocomplete-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* colore di bordo leggermente più chiaro */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out; /* aggiunge un effetto di transizione */
+}
+
+.autocomplete-list li:hover {
+  background-color: #f2f2f2; /* colore di sfondo leggermente più chiaro */
+}
+
+.autocomplete-item {
+  font-size: 16px;
+  color: #333; /* colore di testo scuro */
+}
+
+.autocomplete-item:hover {
+  color: #666; /* colore di testo scuro */
+}
+
+.autocomplete-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.form-control {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd; /* colore di bordo leggermente più chiaro */
+  border-radius: 5px;
+  width: 100%; /* Imposta la larghezza al 100% del contenitore */
+  max-width: none; /* Rimuovi il limite di larghezza massima */
+}

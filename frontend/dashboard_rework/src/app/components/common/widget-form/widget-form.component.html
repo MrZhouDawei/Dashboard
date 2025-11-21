@@ -1,0 +1,189 @@
+<div class="container mt-5">
+  <h2 *ngIf="widgetId" class="text-center mb-4">Edit Widget</h2>
+  <h2 *ngIf="!widgetId"class="text-center mb-4">Create Widget</h2>
+  <div class="stepper">
+    <!-- Step Indicators -->
+    <div class="step-indicators d-flex justify-content-between mb-4">
+      <button
+        class="btn btn-primary"
+        [class.active]="currentStep === 1"
+        (click)="currentStep = 1"
+      >
+        Step 1: Details
+      </button>
+      <button
+        class="btn btn-primary"
+        [class.active]="currentStep === 2"
+        (click)="currentStep = 2"
+      >
+        Step 2: Content HTML
+      </button>
+      <button
+        class="btn btn-primary"
+        [class.active]="currentStep === 3"
+        (click)="currentStep = 3"
+      >
+        Step 3: Dimensions
+      </button>
+      <button
+        class="btn btn-primary"
+        [class.active]="currentStep === 4"
+        (click)="currentStep = 4"
+      >
+        Step 4: URLs
+      </button>
+    </div>
+
+    <!-- Step 1: Widget Details -->
+    <div *ngIf="currentStep === 1" class="form-section">
+      <h3>Step 1: Widget Details</h3>
+      <form [formGroup]="widgetDetailsForm">
+        <div class="mb-3">
+          <label for="widgetTitle" class="form-label">Widget Title</label>
+          <input
+            type="text"
+            id="widgetTitle"
+            class="form-control"
+            formControlName="title"
+            placeholder="Enter widget title"
+            autocomplete="off"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="widgetId" class="form-label">Widget ID</label>
+          <input
+            type="text"
+            id="widgetId"
+            class="form-control"
+            formControlName="id"
+            placeholder="Enter widget ID"
+            [disabled]="widgetId != null"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button-group mt-4">
+          <button
+            class="btn btn-secondary"
+            (click)="nextStep()"
+            [disabled]="!widgetDetailsForm.valid"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 2: Content HTML -->
+    <div *ngIf="currentStep === 2" class="form-section">
+      <h3>Step 2: Content HTML</h3>
+      <form [formGroup]="contentHTMLForm">
+        <app-widget-preview
+          [inputData]="previewData"
+          (outputData)="updatePreviewData($event)"
+        ></app-widget-preview>
+        <div class="button-group mt-4">
+          <button class="btn btn-secondary me-3" (click)="prevStep()">Previous</button>
+          <button
+            class="btn btn-secondary"
+            (click)="nextStep()"
+            [disabled]="!contentHTMLForm.valid"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 3: Widget Dimensions -->
+    <div *ngIf="currentStep === 3" class="form-section">
+      <h3>Step 3: Dimensions</h3>
+      <form [formGroup]="dimensionsForm">
+        <div class="mb-3">
+          <label for="height" class="form-label">Height</label>
+          <input
+            type="number"
+            id="height"
+            class="form-control"
+            formControlName="height"
+            placeholder="Enter widget height"
+            autocomplete="off"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="width" class="form-label">Width</label>
+          <input
+            type="number"
+            id="width"
+            class="form-control"
+            formControlName="width"
+            placeholder="Enter widget width"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button-group mt-4">
+          <button class="btn btn-secondary me-3" (click)="prevStep()">Previous</button>
+          <button
+            class="btn btn-secondary"
+            (click)="nextStep()"
+            [disabled]="!dimensionsForm.valid"
+          >
+            Next
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Step 4: Widget URLs -->
+    <div *ngIf="currentStep === 4" class="form-section">
+      <h3>Step 4: URLs</h3>
+      <form [formGroup]="urlsForm">
+        <div class="mb-3">
+          <label for="helpDocUrl" class="form-label">Help Doc URL</label>
+          <input
+            type="text"
+            id="helpDocUrl"
+            class="form-control"
+            formControlName="helpDocUrl"
+            placeholder="Enter help doc URL"
+            autocomplete="off"
+          />
+          <div *ngIf="this.urlsForm.get('helpDocUrl')?.hasError('invalidUrl')">
+            <p class="error-message">The provided URL is not valid or reachable.</p>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="sourceUrl" class="form-label">Source URL</label>
+          <input
+            type="text"
+            id="sourceUrl"
+            class="form-control"
+            formControlName="url"
+            placeholder="Enter source URL"
+            autocomplete="off"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="urlTitle" class="form-label">URL Title</label>
+          <input
+            type="text"
+            id="urlTitle"
+            class="form-control"
+            formControlName="urlTitle"
+            placeholder="Enter URL title"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button-group mt-4">
+          <button class="btn btn-secondary me-3" (click)="prevStep()">Previous</button>
+          <button
+            class="btn btn-success"
+            (click)="submitWidget()"
+            [disabled]="!urlsForm.valid"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

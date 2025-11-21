@@ -1,0 +1,80 @@
+<div class="dashboard-container" *ngIf="!loadingDashboard">
+  <nav class="navbarDashboard">
+    <div class="current-time">
+      {{ currentTime }} <!-- Mostra l'orario corrente -->
+    </div>
+    <div class="navbar-content">
+      <h1>{{ dashboard?.pageTitle }}</h1>
+      <div class="coords">
+        <span class="coordinates-label">Coordinates:</span>
+        <span class="coordinates-value">N {{ dashboard!.coords[0]  }}, E {{ dashboard!.coords[1]}}</span>
+      </div>
+      <button (click)="openHelpDoc()">
+        <img src="/assets/img/question.png" alt="Help Icon" style="width: 24px; height: 24px;">
+        Help
+      </button>
+      <button
+        class="save-layout-btn"
+        [class.enabled]="saveLayoutEnabled"
+        [class.disabled]="!saveLayoutEnabled"
+        (click)="toggleSaveLayout()"
+      >
+        {{ saveLayoutEnabled ? 'Disable Save Layout' : 'Enable Save Layout' }}
+      </button>
+    </div>
+  </nav>
+
+  <!-- Loader -->
+  <div class="loader" *ngIf="loadingDashboard">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+  </div>
+
+  <!-- Contenitore della Gridstack -->
+  <div class="gridstack-container" *ngIf="!loadingDashboard">
+    <gridstack [options]="gridOptions">
+      <div empty-content>message when grid is empty</div>
+    </gridstack>
+  </div>
+
+  <!-- Help Document Modal -->
+  <div *ngIf="showHelpDoc" class="help-doc-modal">
+    <div class="modal-overlay" (click)="closeHelpDoc()"></div> <!-- Overlay per chiudere il modal -->
+    <div class="modal-content">
+      <span class="close" (click)="closeHelpDoc()">&times;</span>
+      <div>
+        <iframe
+          *ngIf="safeHelpDocUrl"
+          [src]="safeHelpDocUrl"
+          (error)="handleIframeError()"
+          width="100%"
+          height="600px"
+        ></iframe>
+        <iframe *ngIf="!safeHelpDocUrl"
+                [src]="sanitizer.bypassSecurityTrustResourceUrl(defaultHelpDocUrl)"
+                width="100%"
+                height="600px"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ifEditable -->
+  <div *ngIf="isEditable">
+    <app-menu_dashboard [dashboardName]="dashboard?.name"></app-menu_dashboard>
+  </div>
+
+
+  <!-- Modale per il documento di aiuto -->
+  <!-- Overlay che oscura lo sfondo -->
+  <div id="helpModalOverlay" onclick="closeHelpModal()"></div>
+
+  <!-- Modal -->
+  <div id="helpModal">
+    <button id="closeModal">X</button>
+    <iframe id="helpDocIframe"></iframe>
+  </div>
+
+
+</div>

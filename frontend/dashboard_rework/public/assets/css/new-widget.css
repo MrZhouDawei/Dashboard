@@ -1,0 +1,23 @@
+.glyphicon, .caret {
+  font-size:24px;
+}
+
+.widget
+{
+  padding: 7px;
+  background: #eeeeee url('http://dashboard.veniceprojectcenter.org/images/ui-bg_highlight-soft_100_eeeeee_1x100.png') 50% top repeat-x;
+  height:100%;
+}
+
+.widget_heading
+{
+  float: left;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+a {
+  cursor: pointer;
+}

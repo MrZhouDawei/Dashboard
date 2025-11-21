@@ -1,0 +1,42 @@
+.content {
+  margin-bottom: 20px; /* Spazio tra l'elemento sopra e il footer */
+}
+
+/* Footer */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Padding interno per il footer */
+  background-color: #f8f9fa; /* Colore di sfondo del footer */
+  position: fixed; /* Mantiene il footer sempre in fondo */
+  bottom: 0; /* Posiziona il footer in fondo alla pagina */
+  left: 0; /* Allinea il footer a sinistra */
+  right: 0; /* Allinea il footer a destra */
+  z-index: 1000; /* Assicura che il footer sia sopra altri contenuti */
+}
+
+.left-section, .right-section {
+  margin: 0; /* Rimuove il margine */
+  padding: 0; /* Rimuove il padding */
+}
+
+.logos {
+  display: flex; /* Assicura che i loghi siano allineati orizzontalmente */
+}
+
+.logo {
+  margin-left: 10px; /* Aggiungi margine tra i loghi se necessario */
+}
+
+/* Media query per schermi più piccoli */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Cambia la direzione in colonna su schermi piccoli */
+    align-items: flex-start; /* Allinea gli elementi a sinistra */
+  }
+
+  .logos {
+    margin-top: 10px; /* Aggiungi margine tra il messaggio e i loghi */
+  }
+}

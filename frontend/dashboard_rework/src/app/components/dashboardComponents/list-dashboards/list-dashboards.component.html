@@ -1,0 +1,38 @@
+<div class="dashboard-list">
+  <h2>Dashboard Names</h2>
+  <ul>
+    <li *ngFor="let dashboard of dashboards" class="dashboard-item">
+      <a class="dash-link" [routerLink]="['/dashboard', dashboard.name]" [queryParams]="{ isEditable: 'true' }">
+        {{ dashboard.name }}
+      </a>
+      <!-- Delete Icon -->
+      <button class="delete-button" (click)="openDeleteModal(dashboard.name)" aria-label="Delete Dashboard">
+        <img src="/assets/img/trash.png" alt="Delete" class="trash-icon" />
+      </button>
+    </li>
+  </ul>
+
+  <!-- Button to create a new dashboard -->
+  <div class="c-dashboard">
+    <button class="c-button" [routerLink]="['/addDashboard']">
+      <img src="/assets/img/add.png" alt="Add" class="plus-icon" />
+    </button>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="deleteModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Confirm Deletion</h5>
+      <button class="close-button" (click)="closeDeleteModal()">×</button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to delete the dashboard <strong>{{ dashboardToDelete }}</strong>?
+    </div>
+    <div class="modal-footer">
+      <button class="cancel-button" (click)="closeDeleteModal()">Cancel</button>
+      <button class="confirm-button" (click)="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>

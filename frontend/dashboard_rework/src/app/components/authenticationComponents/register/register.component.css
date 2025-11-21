@@ -1,0 +1,127 @@
+.modal {
+  display: flex; /* Usa flexbox per centrare il contenuto */
+  position: fixed; /* Fissa la posizione */
+  z-index: 1000; /* Assicurati che sia sopra altri contenuti */
+  left: 0;
+  top: 0;
+  width: 100%; /* Larghezza completa */
+  height: 100%; /* Altezza completa */
+  overflow: auto; /* Abilita lo scorrimento se necessario */
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+}
+
+
+.modal-content {
+  background-color: #fefefe; /* Colore di sfondo della finestra */
+  margin: auto; /* Centra la finestra */
+  padding: 20px; /* Padding interno */
+  border: 1px solid #888; /* Bordo */
+  width: 80%; /* Larghezza della finestra */
+  max-width: 500px; /* Larghezza massima */
+  border-radius: 5px; /* Angoli arrotondati */
+}
+
+.close {
+  color: #aaa; /* Colore del testo per il pulsante di chiusura */
+  float: right; /* Posiziona a destra */
+  font-size: 28px; /* Dimensione del font */
+  font-weight: bold; /* Grassetto */
+}
+
+.close:hover,
+.close:focus {
+  color: black; /* Colore al passaggio del mouse */
+  text-decoration: none; /* Nessuna decorazione */
+  cursor: pointer; /* Cambia il cursore */
+}
+
+.google-button {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center the icon and text vertically */
+  padding: 10px; /* Add padding for the button */
+  margin-top: 10px; /* Add margin above the button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #db4437; /* Google button background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Change cursor on hover */
+  justify-content: center;
+}
+
+.google-icon {
+  width: 20px; /* Set the width of the icon */
+  height: 20px; /* Set the height of the icon */
+  margin-right: 8px; /* Add space between the icon and text */
+}
+
+.register-container {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 30px; /* Aumentato il padding interno per più spazio */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  margin-bottom: 10vh;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Aumentato margine tra i gruppi di input */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px; /* Aumentato margine sotto l'etichetta */
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 12px; /* Aumentato padding interno per gli input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 12px; /* Aumentato padding per i pulsanti */
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+button:nth-of-type(2) {
+  background-color: #db4437; /* Colore per il pulsante Google */
+}
+
+button:nth-of-type(2):hover {
+  background-color: #c1351d; /* Colore scuro per il pulsante Google al passaggio del mouse */
+}
+
+button:hover {
+  background-color: #0056b3;
+}

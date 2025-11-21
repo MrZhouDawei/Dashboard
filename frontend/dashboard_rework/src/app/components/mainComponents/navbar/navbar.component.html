@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img src="assets/img/venice.png" height="50" alt="MDB Logo" loading="lazy" />
+      </a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <!--
+        <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+          <a class="nav-link" routerLink="/register">Register</a>
+        </li>
+        -->
+        <li class="nav-item" *ngIf="authService.isLoggedIn()">
+          <a class="nav-link" routerLink="/dashboardList">Dashboard</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn()">
+          <a class="nav-link" routerLink="/widgetList">Widget</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isLoggedIn()">
+          <a class="nav-link" (click)="onLogout()">LogOut</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center">
+        <p class="pr-custom email">{{ authService.currentUserSig()?.username || authService.currentUserSig()?.email }}</p>
+        <div class="dropdown">
+          <img src="assets/img/user.png" class="rounded-circle" height="30" loading="lazy" alt="User  Avatar" />
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,36 @@
+<div class="autocomplete-container" (click)="onClick($event)"   #inputElement>
+  <!-- Lista dei widget selezionati -->
+  <div *ngIf="selectedWidgetIds.length > 0" class="selected-widgets-list">
+    <ul>
+      <li *ngFor="let widgetId of selectedWidgetIds">
+        {{ widgetId }}
+        <button type="button" (click)="removeWidget(widgetId)">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Campo di input per la ricerca -->
+  <input
+    id="autocomplete-input"
+    type="text"
+    [(ngModel)]="inputValue"
+    (input)="onInput()"
+    (click)="takeFocus($event)"
+    class="form-control"
+    placeholder="Search Widget..."
+    autocomplete="off">
+
+  <!-- Lista dei suggerimenti (widget filtrati) -->
+  <div *ngIf="showAutocompleteList">
+    <ul  class="autocomplete-list">
+      <li
+        *ngFor="let widget of filteredItems"
+        (click)="onSelect($event, widget)"
+        class="autocomplete-item">
+        <span class="autocomplete-item-title">
+          {{ widget.title }}
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

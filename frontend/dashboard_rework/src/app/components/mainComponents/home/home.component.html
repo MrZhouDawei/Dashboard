@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="column">
+    <h2>Dashboards</h2>
+    <div *ngIf="errorDashboards" class="error">{{ errorDashboards }}</div>
+    <div *ngIf="loadingDashboards" class="loading">Loading dashboards...</div> <!-- Loading indicator -->
+    <div class="scrollable-list" *ngIf="!loadingDashboards && !errorDashboards">
+      <ul>
+        <li *ngFor="let dashboard of dashboards$ | async">
+          <a [routerLink]="['/dashboard', dashboard.name]" [queryParams]="{ isEditable: 'false' }">{{ dashboard.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="column">
+    <h2>Widgets</h2>
+    <div *ngIf="errorWidgets" class="error">{{ errorWidgets }}</div>
+    <div *ngIf="loadingWidgets" class="loading">Loading widgets...</div> <!-- Loading indicator -->
+    <div class="scrollable-list" *ngIf="!loadingWidgets && !errorWidgets">
+      <ul>
+        <li *ngFor="let widget of widgets$ | async">
+          <a [routerLink]="['/widget', widget.id]" [queryParams]="{ isEditable: 'false' }">{{ widget.title }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

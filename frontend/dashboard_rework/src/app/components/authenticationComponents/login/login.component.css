@@ -1,0 +1,135 @@
+.login-container {
+  width: 400px;
+  margin: 40px auto; /* Aumentato il margine superiore per distanziare dal navbar */
+  padding: 30px; /* Maggiore padding per un aspetto più spazioso */
+  border: 1px solid #007bff; /* Cambiato il colore del bordo per differenziare */
+  border-radius: 8px; /* Aumentato il raggio per un aspetto più arrotondato */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Ombra più intensa */
+  background-color: #f9f9f9; /* Cambiato il colore di sfondo per differenziare */
+  margin-bottom: 10vh;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px; /* Maggiore margine per separare dal contenuto */
+  color: #007bff; /* Cambiato il colore del testo del titolo */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Maggiore margine inferiore per separare i campi */
+}
+
+label {
+  display: block;
+  margin-bottom: 8px; /* Maggiore margine per separare le etichette dai campi */
+  font-weight: bold; /* Rende le etichette in grassetto */
+}
+
+input {
+  width: 100%;
+  padding: 12px; /* Maggiore padding per i campi di input */
+  border: 1px solid #007bff; /* Cambiato il colore del bordo per differenziare */
+  border-radius: 5px; /* Aumentato il raggio per un aspetto più arrotondato */
+  transition: border-color 0.3s; /* Aggiunta transizione per il colore del bordo */
+}
+
+input:focus {
+  border-color: #0056b3; /* Cambiato il colore del bordo al focus */
+  outline: none; /* Rimosso il contorno predefinito */
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 12px; /* Maggiore padding per i pulsanti */
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Cambiato il colore di sfondo per differenziare */
+  color: white;
+  font-size: 18px; /* Aumentato il font size per maggiore leggibilità */
+  cursor: pointer;
+  margin-bottom: 12px; /* Maggiore margine inferiore per separare i pulsanti */
+  transition: background-color 0.3s; /* Aggiunta transizione per il colore di sfondo */
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.google-button {
+  background-color: #db4437; /* Colore distintivo per il pulsante Google */
+}
+
+.google-icon {
+  width: 24px; /* Aumentato per una migliore visibilità */
+  vertical-align: middle;
+  margin-right: 8px; /* Maggiore margine per separare l'icona dal testo */
+}
+
+.links {
+  text-align: center;
+  margin-top: 20px; /* Maggiore margine superiore per separare dai pulsanti */
+}
+
+.links a {
+  color: #007bff; /* Colore del link */
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline; /* Sottolinea il link al passaggio del mouse */
+}
+.modal {
+  display: block; /* Mostra il modal */
+  position: fixed; /* Posiziona il modal in modo fisso */
+  z-index: 1000; /* Assicurati che sia sopra gli altri contenuti */
+  left: 0;
+  top: 0;
+  width: 100%; /* Larghezza completa */
+  height: 100%; /* Altezza completa */
+  overflow: auto; /* Aggiungi uno scroll se necessario */
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Posiziona il modal al centro */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px; /* Larghezza fissa del modal */
+  max-width: 90%; /* Limita la larghezza massima al 90% della finestra */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aggiungi un'ombra per un effetto di profondità */
+  border-radius: 8px; /* Aggiungi angoli arrotondati */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.continue-button {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}

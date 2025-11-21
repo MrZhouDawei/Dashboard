@@ -1,0 +1,215 @@
+.widget-list {
+  padding: 1.5rem;
+  background-color: #f9f9f9; /* Light gray background for the list */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container */
+  max-height: 80vh; /* Set a maximum height relative to the viewport */
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max-height */
+}
+
+.widget-list h2 {
+  font-size: 2rem; /* Increase font size */
+  font-weight: bold; /* Make the title bold */
+  color: #2c3e50; /* Darker color for better contrast */
+  text-align: center; /* Center the title */
+  margin-bottom: 1rem; /* Space below the title */
+  padding: 0.5rem; /* Padding around the title */
+  background-color: #dfe6e9; /* Softer light gray for the title background */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.widget-list ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margin for consistent spacing */
+}
+
+.widget-list li {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space out the link and button */
+  padding: 0.75rem; /* Increase padding for list items */
+  border-bottom: 1px solid #ddd; /* Light border for separation */
+  color: #2c3e50; /* Darker text color for better readability */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.widget-list li:hover {
+  background-color: #bbbbbb; /* Darker gray for hover effect */
+  color: #ffffff; /* White text color on hover */
+}
+
+.widget-list li:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+/* Link styles */
+.widget-link {
+  color: #3498db; /* Change link color to a softer blue */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.widget-link:hover {
+  color: #2980b9; /* Darker blue on hover */
+  text-decoration: underline; /* Optional: underline on hover for emphasis */
+}
+
+/* Delete button styles */
+.delete-button {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: auto; /* Push the delete button to the far right */
+}
+
+.delete-button:hover {
+  color: #ff3b3b;
+}
+
+/* Create dashboard styles */
+.c-dashboard {
+  bottom: 20px; /* Margin from the bottom */
+  right: 20px; /* Margin from the right */
+}
+
+.create-button {
+  display: flex;
+  align-items: center;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+
+.create-button:hover {
+  background-color: #218838;
+}
+.trash-icon {
+  width: 24px; /* Imposta la larghezza desiderata */
+  height: 24px; /* Imposta l'altezza desiderata */
+}
+
+.c-dashboard {
+  margin-top: 20px; /* Aggiusta il valore in base alle tue esigenze */
+  text-align: center; /* Centra il pulsante */
+}
+
+.c-button {
+  display: flex;
+  align-items: center;
+  background-color: #28a745; /* Colore di sfondo verde */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s; /* Transizione per il colore di sfondo */
+}
+
+.c-button:hover {
+  background-color: #218838; /* Colore di sfondo al passaggio del mouse */
+}
+
+.new-dashboard-icon {
+  width: 24px; /* Imposta la larghezza desiderata */
+  height: 24px; /* Imposta l'altezza desiderata */
+  margin-right: 8px; /* Spazio tra l'icona e il testo */
+}
+.plus-icon {
+  width: 24px; /* Imposta la larghezza desiderata */
+  height: 24px; /* Imposta l'altezza desiderata */
+}
+.modal-content {
+  border-radius: 0.5rem;
+}
+.widget-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Modal container, initially hidden */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+/* Modal content box */
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Modal header and close button */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Modal footer buttons */
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cancel-button,
+.confirm-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancel-button {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.confirm-button {
+  background: #d9534f;
+  color: white;
+}
+

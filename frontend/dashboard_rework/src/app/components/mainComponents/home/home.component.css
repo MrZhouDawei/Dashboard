@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  justify-content: space-between; /* Spazio tra le colonne */
+  padding: 20px;
+  gap: 20px; /* Spazio tra le colonne */
+  margin-bottom: 20px;
+}
+
+.column {
+  flex: 1; /* Le colonne si espandono uniformemente */
+  background-color: #f9f9f9; /* Colore di sfondo delle colonne */
+  border: 1px solid #ddd; /* Bordo delle colonne */
+  border-radius: 8px; /* Angoli arrotondati */
+  padding: 15px; /* Padding interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+  transition: box-shadow 0.3s ease; /* Transizione per l'ombra */
+}
+
+.column:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra più intensa al passaggio del mouse */
+}
+
+h2 {
+  margin-top: 0; /* Rimuove il margine superiore dell'intestazione */
+  font-size: 1.5em; /* Dimensione del font per l'intestazione */
+  color: #333; /* Colore del testo dell'intestazione */
+}
+
+ul {
+  list-style-type: none; /* Rimuove i punti elenco */
+  padding: 0; /* Rimuove il padding della lista */
+  margin: 0; /* Rimuove il margine della lista */
+}
+
+li {
+  padding: 8px; /* Padding per ogni elemento della lista */
+  border-bottom: 1px solid #ddd; /* Bordo inferiore per separare gli elementi */
+  transition: background-color 0.3s ease; /* Transizione per il colore di sfondo */
+}
+
+li:hover {
+  background-color: #f0f0f0; /* Colore di sfondo al passaggio del mouse */
+}
+
+li:last-child {
+  border-bottom: none; /* Rimuove il bordo dall'ultimo elemento */
+}
+
+.error {
+  color: red; /* Colore del testo per gli errori */
+  margin-bottom: 10px; /* Margine inferiore per il messaggio di errore */
+  font-weight: bold; /* Grassetto per il messaggio di errore */
+}
+
+.scrollable-list {
+  max-height: 70vh; /* Set maximum height to 70% of the viewport height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  border: 1px solid #ddd; /* Optional: border for the list */
+  border-radius: 4px; /* Optional: rounded corners */
+  padding: 5px; /* Optional: internal padding */
+  background-color: #f9f9f9; /* Optional: background color */
+}
+
+.scrollable-list a {
+  text-decoration: none; /* Rimuove la sottolineatura */
+  color: #333; /* Colore del link, può essere personalizzato */
+  transition: color 0.3s ease; /* Transizione per il colore */
+}
+
+.scrollable-list a:hover {
+  color: #007bff; /* Colore del link al passaggio del mouse */
+  text-decoration: underline; /* Sottolinea il link al passaggio del mouse */
+}
+
+/* Loading Indicator Styles */
+.loading {
+  font-size: 16px; /* Dimensione del font per il caricamento */
+  color: #666; /* Colore del testo per il caricamento */
+  margin: 10px 0; /* Margine attorno al testo di caricamento */
+  text-align: center; /* Centra il testo di caricamento */
+  font-weight: bold; /* Grassetto per il testo di caricamento */
+  animation: pulse 1.5s infinite; /* Pulsazione per l'effetto di caricamento */
+}
+
+/* Pulsing Animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}

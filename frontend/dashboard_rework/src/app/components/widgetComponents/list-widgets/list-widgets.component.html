@@ -1,0 +1,38 @@
+<div class="widget-list">
+  <h2>Widget Names</h2>
+  <ul>
+    <li *ngFor="let widget of (widgets$ | async)" class="widget-item">
+      <a class="widget-link" [routerLink]="['/widget', widget.id]" [queryParams]="{ isEditable: 'true' }">
+        {{ widget.title }}
+      </a>
+      <!-- Delete Icon -->
+      <button class="delete-button" (click)="openDeleteModal(widget.id, widget.title)" aria-label="Delete Widget">
+        <img src="/assets/img/trash.png" alt="Delete" class="trash-icon" />
+      </button>
+    </li>
+  </ul>
+
+  <!-- Button to create a new widget -->
+  <div class="c-widget">
+    <button class="c-button" [routerLink]="['/addWidget']">
+      <img src="/assets/img/add.png" alt="Add" class="plus-icon" />
+    </button>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="deleteModal" class="modal hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Confirm Deletion</h5>
+      <button class="close-button" (click)="closeDeleteModal()">×</button>
+    </div>
+    <div class="modal-body">
+      Are you sure you want to delete the widget <strong>{{ widgetToDeleteName }}</strong>?
+    </div>
+    <div class="modal-footer">
+      <button class="cancel-button" (click)="closeDeleteModal()">Cancel</button>
+      <button class="confirm-button" (click)="confirmDelete()">Delete</button>
+    </div>
+  </div>
+</div>

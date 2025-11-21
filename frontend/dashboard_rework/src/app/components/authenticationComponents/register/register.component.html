@@ -1,0 +1,48 @@
+<div class="register-container">
+  <h2>Registration</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email" placeholder="Insert email" />
+      <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="error">
+        <small *ngIf="registerForm.get('email')?.errors?.['required']">Email is required.</small>
+        <small *ngIf="registerForm.get('email')?.errors?.['email']">Email invalid format.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input id="username" formControlName="username" type="text" placeholder="Insert username" />
+      <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">
+        <small *ngIf="registerForm.get('username')?.errors?.['required']">Username is required.</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input id="password" formControlName="password" type="password" placeholder="Insert Password" />
+      <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">
+        <small *ngIf="registerForm.get('password')?.errors?.['required']">Password is required.</small>
+        <small *ngIf="registerForm.get('password')?.errors?.['minlength']">Password too short (min 6).</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Registration</button>
+    <button type="button" (click)="onLoginWithGoogle()" class="google-button">
+      <img src="assets/img/google.png" alt="Google Logo" class="google-icon" />
+      Registration with Google
+    </button>
+  </form>
+
+  <div *ngIf="showModal" class="modal"> <!-- Finestra di dialogo -->
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <p>{{ confirmationMessage }}</p>
+      <button (click)="onContinue()" class="continue-button">Continue</button>
+    </div>
+  </div>
+
+  <div class="login-link">
+    <p>Already have an account? <a routerLink="/login">Login here</a></p>
+  </div>
+</div>

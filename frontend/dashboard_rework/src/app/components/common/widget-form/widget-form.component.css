@@ -1,0 +1,26 @@
+.step-indicators button {
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.step-indicators .active {
+  background-color: #007bff;
+  color: white;
+}
+
+.stepper {
+  max-width: 600px;
+  margin: auto;
+}
+.button-group button {
+  margin-right: 15px;
+}
+
+.button-group button:last-child {
+  margin-right: 0;
+}
+
+.form-section {
+  margin-bottom: 10vh; /* Mantiene uno spazio sotto ogni sezione */
+}
+

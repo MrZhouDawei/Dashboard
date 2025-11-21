@@ -1,0 +1,23 @@
+<div *ngIf="widget; else loading" class="widget-container">
+  <h1>{{ widget.title }}</h1>
+  <p><strong>Widget ID:</strong> {{ widget.id }}</p>
+  <p><strong>Height:</strong> {{ widget.height }}</p>
+  <p><strong>Width:</strong> {{ widget.width }}</p>
+  <p *ngIf="widget.helpDocUrl">
+    <strong>Help Document:</strong>
+    <a [href]="widget.helpDocUrl" target="_blank" rel="noopener noreferrer">{{ widget.helpDocUrl }}</a>
+  </p>
+  <p *ngIf="widget.url">
+    <strong>Source URL:</strong>
+    <a [href]="widget.url" target="_blank" rel="noopener noreferrer">{{ widget.urlTitle || widget.url }}</a>
+  </p>
+
+  <hr />
+
+  <!-- Widget Preview -->
+  <iframe *ngIf="widgetBlobUrl" [src]="widgetBlobUrl" class="widget-preview-frame"></iframe>
+</div>
+<app-menu-widget *ngIf="isEditable && widgetId" [widgetId]="widgetId"></app-menu-widget>
+<ng-template #loading>
+  <p>Loading widget...</p>
+</ng-template>

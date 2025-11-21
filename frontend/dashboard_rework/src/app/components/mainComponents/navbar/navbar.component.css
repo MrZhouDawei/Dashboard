@@ -1,0 +1,24 @@
+.pr-custom {
+  padding-right: 10px; /* Adjust the value as needed */
+}
+.navbar {
+  font-family: 'Marker Felt', fantasy; /* Set the navbar font */
+  background-color: #343a40; /* Dark background for contrast */
+}
+.nav-link {
+  color: whitesmoke; /* Set the text color to white */
+}
+.nav-link:hover {
+  color: teal; /* Slightly lighter white on hover */
+}
+navbar {
+  padding: 1.0rem 2rem; /* Aumenta il padding della navbar */
+  font-size: 1.5rem; /* Aumenta la dimensione del font */
+}
+.nav-link {
+  padding: 1rem 1.5rem; /* Aumenta il padding delle voci di navigazione */
+}
+
+.email {
+  color:white;
+}

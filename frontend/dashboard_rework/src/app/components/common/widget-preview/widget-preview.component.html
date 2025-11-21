@@ -1,0 +1,44 @@
+<div class="widget-preview-container">
+  <!-- Preview Pane -->
+  <div class="preview-pane border rounded p-3" *ngIf="previewSrc; else noPreview">
+    <iframe [src]="previewSrc" width="100%" height="300px"></iframe>
+  </div>
+
+  <!-- Placeholder -->
+  <ng-template #noPreview>
+    <div class="text-muted text-center">No preview available. Add some content to preview the widget.</div>
+  </ng-template>
+
+  <!-- Form Controls -->
+  <div class="mt-3">
+    <label for="htmlCode" class="form-label">HTML Code</label>
+    <textarea
+      id="htmlCode"
+      class="form-control"
+      [(ngModel)]="htmlCode"
+      (input)="generatePreview()"
+      placeholder="Enter HTML code here"
+    ></textarea>
+
+    <label for="cssCode" class="form-label mt-3">CSS Code</label>
+    <textarea
+      id="cssCode"
+      class="form-control"
+      [(ngModel)]="cssCode"
+      (input)="generatePreview()"
+      placeholder="Enter CSS code here"
+    ></textarea>
+
+    <label for="jsCode" class="form-label mt-3">JavaScript Code</label>
+    <textarea
+      id="jsCode"
+      class="form-control"
+      [(ngModel)]="jsCode"
+      (input)="generatePreview()"
+      placeholder="Enter JavaScript code here"
+    ></textarea>
+
+    <!-- Save Button -->
+    <button class="btn btn-primary mt-3" (click)="save()">Save Widget</button>
+  </div>
+</div>

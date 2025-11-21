@@ -1,0 +1,310 @@
+@import "../../../../../node_modules/gridstack/dist/gridstack.min.css";
+@import "../../../../../node_modules/gridstack/dist/gridstack-extra.min.css";
+
+.dashboard-container {
+  display: flex;
+  height: 100vh; /* Imposta l'altezza della dashboard */
+  font-family: 'Arial', sans-serif; /* Font generale */
+  padding-bottom: 20px; /* Aggiungi padding dal basso */
+}
+
+.coordinates-label,
+.coordinates-value {
+  display: block; /* Ogni elemento occupa una riga intera */
+  margin-bottom: 0.5rem; /* Aggiungi spazio tra le righe (opzionale) */
+}
+
+/* Navbar a sinistra */
+.navbarDashboard {
+  width: 250px; /* Larghezza della navbar */
+  background-color: #2c3e50; /* Colore di sfondo della navbar */
+  color: #ecf0f1; /* Colore del testo nella navbar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Ombra per la navbar */
+  display: flex;
+  flex-direction: column; /* Disposizione verticale del contenuto */
+  justify-content: center; /* Allinea gli elementi al centro */
+  align-items: center; /* Centra orizzontalmente il contenuto */
+  height: 94.5%; /* Assicurati che la navbar occupi tutta l'altezza disponibile */
+  font-size: 1.2em;
+  padding-bottom: 20px; /* Aggiungi padding dal basso */
+}
+
+.current-time {
+  font-size: 2em; /* Aumenta la dimensione del font per il timer */
+  margin-bottom: 10px; /* Spazio sotto l'orario */
+  color: #ffcc00; /* Colore dell'orario che si distingue */
+  text-align: center; /* Centra il testo */
+}
+
+.navbar-content {
+  text-align: center; /* Centra il testo all'interno del contenuto della navbar */
+  width: 100%; /* Assicurati che il contenuto occupi tutta la larghezza */
+  display: flex; /* Usa flexbox per centrare il contenuto */
+  flex-direction: column; /* Disposizione verticale */
+  align-items: center; /* Centra orizzontalmente */
+}
+
+.navbarDashboard h1 {
+  font-size: 2em; /* Aumenta la dimensione del carattere */
+  margin: 10px 0; /* Margine sopra e sotto */
+}
+
+.coords {
+  font-size: 1.2em;
+  margin: 10px 0; /* Margine per separare le coordinate */
+}
+
+/* Contenitore della Gridstack */
+.gridstack-container {
+  flex-grow: 1; /* Permette alla Gridstack di occupare lo spazio rimanente */
+  overflow: auto; /* Permette lo scorrimento se necessario */
+  display: flex; /* Aggiungi display flex */
+}
+
+/* Gridstack */
+.grid-stack {
+  flex-grow: 1; /* Permette alla Gridstack di occupare tutto lo spazio disponibile */
+  background: cadetblue; /* Colore di sfondo del gridstack */
+  margin-bottom: 5vh;
+}
+
+/* dashboard.component.css */
+.grid-stack-item-content { /* Colore di sfondo personalizzato */
+  border: 1px solid #ccc; /* Bordo */
+  border-radius: 5px; /* Angoli arrotondati */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombra */
+}
+
+
+
+.help-doc-modal {
+  position: fixed; /* Posiziona il modal in modo fisso */
+  top: 0; /* Allinea in alto */
+  left: 0; /* Allinea a sinistra */
+  width: 100%; /* Larghezza completaa per l'overlay */
+  height: 100%; /* Altezza completa per l'overlay */
+  display: flex; /* Usa flexbox per centrare il contenuto */
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  z-index: 1000; /* Assicurati che sia sopra altri contenuti */
+}
+
+.modal-content {
+  position: relative; /* Posiziona il contenuto del modal */
+  background-color: white; /* Sfondo bianco per il contenuto */
+  width: 70%; /* Larghezza del modal al 70% dello schermo */
+  max-height: 80%; /* Altezza massima del modal */
+  overflow: auto; /* Permette lo scorrimento se il contenuto è troppo grande */
+  padding: 20px; /* Padding interno */
+  border-radius: 8px; /* Angoli arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra per il contenuto */
+  z-index: 1001; /* Sopra l'overlay */
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Occupa l'intera altezza della finestra */
+  background-color: rgba(255, 255, 255, 0.8); /* Sfondo semi-trasparente */
+  position: absolute; /* Posizionamento assoluto per sovrapporsi al contenuto */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000; /* Assicurati che sia sopra gli altri contenuti */
+}
+
+.spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1); /* Colore chiaro per il bordo */
+  border-top: 8px solid #3498db; /* Colore del bordo superiore */
+  border-radius: 50%; /* Forma circolare */
+  width: 50px; /* Dimensione del loader */
+  height: 50px; /* Dimensione del loader */
+  animation: spin 1s linear infinite; /* Animazione di rotazione */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Riduci le dimensioni dell'icona e spostala in basso */
+button {
+  background-color: #3498db; /* Colore di sfondo del pulsante */
+  color: white; /* Colore del testo */
+  border-radius: 5px; /* Angoli arrotondati */
+  border: none; /* Rimuovi il bordo */
+  padding: 10px; /* Aggiungi padding */
+  display: flex; /* Allinea icona e testo */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra orizzontalmente */
+  margin-top: 10px; /* Aggiungi margine sopra per separare dal contenuto */
+}
+
+button img {
+  margin-right: 8px; /* Spazio tra icona e testo */
+}
+
+button:hover {
+  background-color: #2980b9; /* Colore più scuro al passaggio del mouse */
+}
+
+.widget-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: #007bff;
+  border-bottom: 2px solid #ccc;
+}
+
+.widget-body {
+  padding: 15px;
+  min-height: 150px;
+}
+
+.widget-title {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.widget-title:hover {
+  text-decoration: underline;
+}
+.widget-help-btn span {
+  font-size: 18px; /* Imposta la dimensione dell'icona */
+  color: black; /* Imposta il colore dell'icona */
+  display: inline-block; /* Assicura che l'icona venga visualizzata */
+}
+/* Modale principale */
+#helpModal {
+  display: none; /* Nasconde il modal per default */
+  position: fixed; /* Fisso in relazione alla finestra del browser */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra orizzontalmente */
+  transform: translate(-50%, -50%); /* Corregge l'allineamento centrato */
+  width: 80%; /* Imposta una larghezza a tua scelta */
+  height: 80%; /* Imposta un'altezza a tua scelta */
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Assicura che il modale sia sopra gli altri contenuti */
+  overflow: hidden; /* Nasconde gli eventuali overflow */
+}
+
+
+/* Overlay che oscura lo sfondo */
+#helpModalOverlay {
+  display: none; /* Nasconde l'overlay per default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sfondo scuro trasparente */
+  z-index: 999; /* Deve essere sotto al modal */
+}
+
+/* Stile per l'iframe dentro il modal */
+#helpDocIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.iframe-loader {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Pulsante di chiusura */
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.widget-help-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem; /* Dimensione dell'icona */
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.widget-help-btn:hover {
+  color: #f39c12; /* Colore del testo durante il passaggio del mouse */
+  transform: scale(1.2); /* Aggiungi un'animazione di ingrandimento */
+}
+
+.widget-help-btn span {
+  font-size: 18px; /* Imposta la dimensione dell'icona */
+  color: inherit;
+}
+/* Stile per il bottone di salvataggio */
+.save-layout-btn {
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+}
+
+.save-layout-btn.disabled {
+  background-color: #66BB6A;
+}
+
+.save-layout-btn.enabled {
+  background-color: #EF5350;
+}
+
+.save-layout-btn.disabled:hover {
+  background-color: #81C784;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.save-layout-btn.enabled:hover {
+  background-color: #E57373;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.save-layout-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.save-layout-btn span {
+  display: inline-block;
+  animation: fadeIn 0.3s ease;
+}

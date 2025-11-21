@@ -1,0 +1,17 @@
+<nav class="menu">
+  <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+  <label class="menu-open-button" for="menu-open">
+    <span class="lines line-1"></span>
+    <span class="lines line-2"></span>
+  </label>
+
+
+  <a [routerLink]="['/editWidget',widgetId]" class="menu-item green">
+    <img src="/assets/img/edit.png" alt="Edit Icon" height="128" width="128"/>
+  </a>
+  <a [routerLink]="['/widget', widgetId]" [queryParams]="{ isEditable: 'true' }"  class="menu-item red">
+    <img src="/assets/img/widget.png" alt="Widget Icon" height="128" width="128"/>
+  </a>
+</nav>
+
+
